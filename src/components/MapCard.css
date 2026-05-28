@@ -1,0 +1,92 @@
+.map-card {
+    width: 320px;
+    height: 200px;
+    border-radius: 16px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.map-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.map-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 15px 20px;
+}
+
+.map-card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.map-card-title {
+    color: white;
+    font-size: 26px;
+    font-weight: 900;
+    font-style: italic;
+    margin: 0;
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.8);
+    letter-spacing: 0.5px;
+    max-width: 65%;
+    line-height: 1.1;
+}
+
+.map-card-difficulty {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 3px;
+}
+
+.difficulty-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 18px;
+}
+
+.difficulty-bars .bar {
+    width: 4px;
+    border-radius: 1px;
+}
+
+.difficulty-bars .bar-1 { height: 6px; }
+.difficulty-bars .bar-2 { height: 10px; }
+.difficulty-bars .bar-3 { height: 14px; }
+.difficulty-bars .bar-4 { height: 18px; }
+
+.difficulty-bars .inactive {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.bars-1 .active { background-color: #4ade80; }
+.bars-2 .active { background-color: #facc15; }
+.bars-3 .active { background-color: #ef4444; } 
+.bars-4 .active { background-color: #991b1b; }
+
+.difficulty-text {
+    color: #e2e8f0;
+    font-weight: 900;
+    font-size: 14px;
+    font-style: italic;
+    text-shadow: 0px 1px 2px rgba(0,0,0,0.8);
+    letter-spacing: 0.5px;
+}
