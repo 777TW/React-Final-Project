@@ -1,10 +1,12 @@
-import NavBar from './components/NavBar.jsx'
 import './App.css'
+import NavBar from './components/NavBar.jsx'
+import MapFilterBar from './components/MapFilterBar.jsx';
 
 function App() {
     return (
-        <div className="container">
+        <div>
             <NavBar />
+            <MapFilterBar />
         </div>
     );
 }
