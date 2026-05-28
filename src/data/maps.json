@@ -4,846 +4,967 @@
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:480:320/gravity:ce/plain/map/3f950f0318b9086b1b9ec591206dfdd8.jpg",
     "title": "World",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "ALL"
   },
   {
     "id": 2,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/4f62ae62b9e18d8dd6ccc368d15c79bd.jpg",
     "title": "Famous Places",
     "difficultyText": "HARD",
-    "activeBars": 3
+    "activeBars": 3,
+    "category": "ALL"
   },
   {
     "id": 3,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/9600f3b2a8f06e38fa117befdae9c9e0.jpg",
     "title": "Taiwan",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "ASIA"
   },
   {
     "id": 4,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/e4f84cb2913aeb8d1af4e647c75caf87.jpg",
     "title": "Asia",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "ASIA"
   },
   {
     "id": 5,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/d908c91fbd846ad9181d0083eac1e236.jpg",
     "title": "United States",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "NORTH AMERICA"
   },
   {
     "id": 6,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/d61a7e9974cb670ed4846428f2961e2d.jpg",
     "title": "Japan",
     "difficultyText": "EASY",
-    "activeBars": 1
+    "activeBars": 1,
+    "category": "ASIA"
   },
   {
     "id": 7,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/33519c07b513f9348cdcae06637ccdd2.jpg",
     "title": "United Kingdom",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 8,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/a0c2d083002ab8968d3c80740f8a5b76.jpg",
     "title": "France",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 9,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/f72264478533a80f39f1aa40fe817585.jpg",
     "title": "Spain",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 10,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/d8088c4207562b41226c7e9f2a99c891.jpg",
     "title": "Germany",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 11,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/45694e550b656e831f10b7d850d613a3.jpg",
     "title": "Türkiye",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "ASIA"
   },
   {
     "id": 12,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/01bfaac933cbc42417bcb1e52005455b.jpg",
     "title": "Canada",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "NORTH AMERICA"
   },
   {
     "id": 13,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/2bb1d8a7f54727f421f0b7844b764f8a.jpg",
     "title": "Poland",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 14,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/f076fb8de8976e9fdf8f4dc90645e428.jpg",
     "title": "Italy",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 15,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/662b32928d69a9f75b6e6b9305f3693f.jpg",
     "title": "Russia",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "ASIA"
   },
   {
     "id": 16,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/faf1e9514a73797c9d4aee133973399f.jpg",
     "title": "Brazil",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "SOUTH AMERICA"
   },
   {
     "id": 17,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/51cf13d662eab22f95156407e3c7e470.jpg",
     "title": "Europe",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 18,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/90bc27fc05abbea1900694d39e5f6779.jpg",
     "title": "Australia",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "OCEANIA"
   },
   {
     "id": 19,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/e4c266bc28b9566abae0ba29d397e602.jpg",
     "title": "Indonesia",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "ASIA"
   },
   {
     "id": 20,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/19c0424194468887ca7acb1c7b5c2a96.jpg",
     "title": "Netherlands",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 21,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/5227989f23f8a86f605fd0dc91df0604.jpg",
     "title": "India",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "ASIA"
   },
   {
     "id": 22,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/cee65b362c1f6ab6db3f27fe077cb125.jpg",
     "title": "Sweden",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 23,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/c7a213a341c0049fa224d630fc0e9543.jpg",
     "title": "Switzerland",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 24,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/8b866e1371ec9642d8eda6e7da5d7f65.jpg",
     "title": "Norway",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 25,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/f24f2a0724172b86f4fcd2d172cac268.jpg",
     "title": "Ukraine",
     "difficultyText": "HARD",
-    "activeBars": 3
+    "activeBars": 3,
+    "category": "EUROPE"
   },
   {
     "id": 26,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/12236212f5a577da0e6c6ddf3d468d3f.jpg",
     "title": "Argentina",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "SOUTH AMERICA"
   },
   {
     "id": 27,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/f4e9e7a8c6f7eb62ca8f63de7abfb14f.jpg",
     "title": "Finland",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 28,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/57c8375836c63269da5ea7c559b84143.jpg",
     "title": "New Zealand",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "OCEANIA"
   },
   {
     "id": 29,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/94a17d49acf25c4e2ea87122d5461e84.jpg",
     "title": "Ireland",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 30,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/7b89c16ee8a7eec178ae7ad542114ea0.jpg",
     "title": "Denmark",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 31,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/4a1579542fc4488df3b4f49acf74224a.jpg",
     "title": "Mexico",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "NORTH AMERICA"
   },
   {
     "id": 32,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/8ee99b7538050f0ccc6d57ce6bd7b0f6.jpg",
     "title": "Greece",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 33,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/f7b55450f54ed1de8d263b99e33c4449.jpg",
     "title": "Hungary",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 34,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/c0cd2034f8dcb4cb931023cfcf4b7a7a.jpg",
     "title": "Romania",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 35,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/a0e2c6893e3d10be5440021026f275a5.jpg",
     "title": "Portugal",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 36,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/09a7ff082e126e215d37eb149de8ec0b.jpg",
     "title": "Serbia",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 37,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/2b1a2685372e41fdb382f67c2228ecf5.jpg",
     "title": "Belgium",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 38,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/9a4b94f8ad7c6dfc94fc5e78dbe54f06.jpg",
     "title": "Thailand",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "ASIA"
   },
   {
     "id": 39,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/7fef6508297c6057799a325b87e6d2cf.jpg",
     "title": "Israel",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "ASIA"
   },
   {
     "id": 40,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/065790ba9850d1c91548d8518b4fc2cb.jpg",
     "title": "Croatia",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 41,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/f35c41a3b2a1266b227fa5eee1c04fa8.jpg",
     "title": "Austria",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 42,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/c517cf345c96042255e9054ff4da0f7d.jpg",
     "title": "Czech Republic",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 43,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/3083cecc5074b4b209596d5b7f636e7c.jpg",
     "title": "Chile",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "SOUTH AMERICA"
   },
   {
     "id": 44,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/02c2f20fbc270e8616861463b6a1303c.jpg",
     "title": "Bulgaria",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 45,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/54134ecb612e3695f7206f483cd25c90.jpg",
     "title": "Colombia",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "SOUTH AMERICA"
   },
   {
     "id": 46,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/e456290492cf650ff8a666a094319913.jpg",
     "title": "South Korea",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "ASIA"
   },
   {
     "id": 47,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/d9db67c2c623d4f4e5207cb50e84f7e4.jpg",
     "title": "Malaysia",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "ASIA"
   },
   {
     "id": 48,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/e24e47a5b42a77e7dd3f0e82959d2bbc.jpg",
     "title": "Singapore",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "ASIA"
   },
   {
     "id": 49,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/31e60713f490103dce0a8e3d5f9fb986.jpg",
     "title": "Hong Kong",
     "difficultyText": "EASY",
-    "activeBars": 1
+    "activeBars": 1,
+    "category": "ASIA"
   },
   {
     "id": 50,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/27798c373f3a64306120af192839e280.jpg",
     "title": "Philippines",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "ASIA"
   },
   {
     "id": 51,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/9896a1d59049c0d04c29446a2f3daf57.jpg",
     "title": "Slovakia",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 52,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/a28d83385d69a6f1d6e0786bd4ceca83.jpg",
     "title": "Lithuania",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 53,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/f41ede13f19fadba4c29f4853cef2390.jpg",
     "title": "Africa",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "AFRICA"
   },
   {
     "id": 54,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/0a11af9de0067cc38a6ae75e982404b2.jpg",
     "title": "South Africa",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "AFRICA"
   },
   {
     "id": 55,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/7a56d55585533b6158b051ca1ce26611.jpg",
     "title": "Iceland",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 56,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/64567afd958e7322afd7ef14ff4a7db4.jpg",
     "title": "South America",
     "difficultyText": "HARD",
-    "activeBars": 3
+    "activeBars": 3,
+    "category": "SOUTH AMERICA"
   },
   {
     "id": 57,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/9b2271aa0c30553f383181760b5193ec.jpg",
     "title": "Slovenia",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 58,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/bf0298c21ba8173c5cb6b207d82c4e4d.jpg",
     "title": "Estonia",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 59,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/fda533fbf99d10f34444bd8747c9a75c.jpg",
     "title": "Latvia",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 60,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/a460d6fb318196a14f185af475c997fb.jpg",
     "title": "Peru",
     "difficultyText": "HARD",
-    "activeBars": 3
+    "activeBars": 3,
+    "category": "SOUTH AMERICA"
   },
   {
     "id": 61,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/1257f892f7e2c2a47d874b2484963314.jpg",
     "title": "North America",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "NORTH AMERICA"
   },
   {
     "id": 62,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/c528fbd1145c00c98933cd9e9c4e64eb.jpg",
     "title": "Madagascar",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "AFRICA"
   },
   {
     "id": 63,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/cfe2fc13294d9d43690ea31938a6fbbf.jpg",
     "title": "Uruguay",
     "difficultyText": "HARD",
-    "activeBars": 3
+    "activeBars": 3,
+    "category": "SOUTH AMERICA"
   },
   {
     "id": 64,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/4a9de6eebfe3388e54fd93ec8cb2c20c.jpg",
     "title": "Ecuador",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "SOUTH AMERICA"
   },
   {
     "id": 65,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/bb24ca9bf44b04d8690fe670905975f8.jpg",
     "title": "Albania",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 66,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/61ac2fa13549c2b1e7d3ec61d5c19fc2.jpg",
     "title": "Luxembourg",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 67,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/d73e3cbb15cab5215af34d39d79d1983.jpg",
     "title": "Greenland",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "NORTH AMERICA"
   },
   {
     "id": 68,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/bb4b5ca8b9cb319dc4856d3840ccdeeb.jpg",
     "title": "Puerto Rico",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "NORTH AMERICA"
   },
   {
     "id": 69,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/1cf6352d3246313be2241b412c19c02a.jpg",
     "title": "Mongolia",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "ASIA"
   },
   {
     "id": 70,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/85ac93fde4169607abf23ace04e170b8.jpg",
     "title": "North Macedonia",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 71,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/3360a9d09c18a8371c6c9abed5926d0a.jpg",
     "title": "Monaco",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 72,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/abe3fdcfb1b2b2ace036e7b0604f1cce.jpg",
     "title": "United Arab Emirates",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "ASIA"
   },
   {
     "id": 73,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/067b4b4dea1df3b20e16a8e41e1d1bc8.jpg",
     "title": "Tunisia",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "AFRICA"
   },
   {
     "id": 74,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/523a46bac2aed0c9e868eba2673ec7b4.jpg",
     "title": "Montenegro",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 75,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/e4a5cc900e8f21da640ffc60d52cf6c8.jpg",
     "title": "Kazakhstan",
     "difficultyText": "HARD",
-    "activeBars": 3
+    "activeBars": 3,
+    "category": "ASIA"
   },
   {
     "id": 76,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/4db6890ad8f08dfe072561b120399a17.jpg",
     "title": "Guatemala",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "NORTH AMERICA"
   },
   {
     "id": 77,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/80edd70513e95265335e23f11237547d.jpg",
     "title": "Faroe Islands",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 78,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/c8192b74e022f46ec1d4c35456c9f1cb.jpg",
     "title": "Bolivia",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "SOUTH AMERICA"
   },
   {
     "id": 79,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/bfeeb86f95583f8e19a138521b10a7a7.jpg",
     "title": "Malta",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 80,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/ae6b233b478236755cc7612ae17c068c.jpg",
     "title": "Dominican Republic",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "NORTH AMERICA"
   },
   {
     "id": 81,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/2aa6b912593eea4a1b4c2ec8aea9b920.jpg",
     "title": "Bangladesh",
     "difficultyText": "HARD",
-    "activeBars": 3
+    "activeBars": 3,
+    "category": "ASIA"
   },
   {
     "id": 82,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/a0160b02100ba0e2ecba380a7e7a3a99.jpg",
     "title": "Vietnam",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "ASIA"
   },
   {
     "id": 83,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/3bf28cc16584e61527d2c50017670845.jpg",
     "title": "Nigeria",
     "difficultyText": "HARD",
-    "activeBars": 3
+    "activeBars": 3,
+    "category": "AFRICA"
   },
   {
     "id": 84,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/837343fbd50aa474922720f168652f9e.jpg",
     "title": "Kyrgyzstan",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "ASIA"
   },
   {
     "id": 85,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/d2f2623f17167fdaf2293ffff1f07b31.jpg",
     "title": "Botswana",
     "difficultyText": "HARD",
-    "activeBars": 3
+    "activeBars": 3,
+    "category": "AFRICA"
   },
   {
     "id": 86,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/906807ecfeaba9cbb499780fb28f635c.jpg",
     "title": "Oceania",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "OCEANIA"
   },
   {
     "id": 87,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/88fc0dddca673ab811a4c6c179a997f2.jpg",
     "title": "Jordan",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "ASIA"
   },
   {
     "id": 88,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/a025991e891673684477205809278a04.jpg",
     "title": "Isle of Man",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 89,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/ff278d6e7c6a02ee7261fa439332a2c5.jpg",
     "title": "Sri Lanka",
     "difficultyText": "HARD",
-    "activeBars": 3
+    "activeBars": 3,
+    "category": "ASIA"
   },
   {
     "id": 90,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/b1599950d936fa067ef129eae2c724e0.jpg",
     "title": "Guam",
     "difficultyText": "EASY",
-    "activeBars": 1
+    "activeBars": 1,
+    "category": "OCEANIA"
   },
   {
     "id": 91,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/159f29847052ddc1c930af476ee52b82.jpg",
     "title": "Cambodia",
     "difficultyText": "HARD",
-    "activeBars": 3
+    "activeBars": 3,
+    "category": "ASIA"
   },
   {
     "id": 92,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/b1f3d579319819acfcbff3664f1b995d.jpg",
     "title": "Andorra",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 93,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/43abad33386a5202d72c84c2df298b66.jpg",
     "title": "Kenya",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "AFRICA"
   },
   {
     "id": 94,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/37cb872351f0337d3e01b60d91a4de0a.jpg",
     "title": "Christmas Island",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "OCEANIA"
   },
   {
     "id": 95,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/6a1cd8dda732a016f732c067bffc8a45.jpg",
     "title": "Qatar",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "ASIA"
   },
   {
     "id": 96,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/035e344720e69d619b045ed3fd993458.jpg",
     "title": "Senegal",
     "difficultyText": "HARD",
-    "activeBars": 3
+    "activeBars": 3,
+    "category": "AFRICA"
   },
   {
     "id": 97,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/b0280218dccc3a84a7a2cf5d1d85d990.jpg",
     "title": "Jersey",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 98,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/cf3ad5494aa7b6cadd7cb1ad04969328.jpg",
     "title": "San Marino",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 99,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/b1b8e425531c4a9ddf71193031df2297.jpg",
     "title": "Laos",
     "difficultyText": "EASY",
-    "activeBars": 1
+    "activeBars": 1,
+    "category": "ASIA"
   },
   {
     "id": 100,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/0b526c98a4ba14006d563bb0ed0072f6.jpg",
     "title": "Uganda",
     "difficultyText": "EASY",
-    "activeBars": 0
+    "activeBars": 0,
+    "category": "AFRICA"
   },
   {
     "id": 101,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/8557c9b4d1e5bfe6b9d78b1d86cdccca.jpg",
     "title": "Lebanon",
     "difficultyText": "HARD",
-    "activeBars": 3
+    "activeBars": 3,
+    "category": "ASIA"
   },
   {
     "id": 102,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/3a54b9f4e1e592a7fdef62b5ad82b750.jpg",
     "title": "Gibraltar",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 103,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/8c0342114a50768b7125a9014c6b6c6d.jpg",
     "title": "Ghana",
     "difficultyText": "HARD",
-    "activeBars": 3
+    "activeBars": 3,
+    "category": "AFRICA"
   },
   {
     "id": 104,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/7bf83e70f25b48a8d8632f4c8bd7a182.jpg",
     "title": "Panama",
     "difficultyText": "HARD",
-    "activeBars": 3
+    "activeBars": 3,
+    "category": "NORTH AMERICA"
   },
   {
     "id": 105,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/a5da92bbf3fe609d24f517c07d00d194.jpg",
     "title": "Liechtenstein",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 106,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/4f95170a6f4ca7e86ebf656206d5f1cd.jpg",
     "title": "Curaçao",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "NORTH AMERICA"
   },
   {
     "id": 107,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/81e34d4f2761f8f80644cc5786629007.jpg",
     "title": "Lesotho",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "AFRICA"
   },
   {
     "id": 108,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/2404261742e98967015f7f6e94d241fc.jpg",
     "title": "Bhutan",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "ASIA"
   },
   {
     "id": 109,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/ab788c8dc74eb13612dc213eb11b186c.jpg",
     "title": "United States Virgin Islands",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "NORTH AMERICA"
   },
   {
     "id": 110,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/f9b1b655dd67b39317ab0be819914933.jpg",
     "title": "Rwanda",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "AFRICA"
   },
   {
     "id": 111,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/7fd1a831dc47ea2b9a162dbf9f4d13f2.jpg",
     "title": "Eswatini",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "AFRICA"
   },
   {
     "id": 112,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/391b670641acccc6697d44191aa656d4.jpg",
     "title": "American Samoa",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "OCEANIA"
   },
   {
     "id": 113,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/736c627ea1fc02580586edba34f87885.jpg",
     "title": "Bosnia and Herzegovina",
     "difficultyText": "HARD",
-    "activeBars": 3
+    "activeBars": 3,
+    "category": "EUROPE"
   },
   {
     "id": 114,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/bbf779b95e5c273d1efb4115ff63df1d.jpg",
     "title": "Northern Mariana Islands",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "OCEANIA"
   },
   {
     "id": 115,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/5203652ca2bb2ca9a1f1b1754860c29a.jpg",
     "title": "São Tomé and Príncipe",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "AFRICA"
   },
   {
     "id": 116,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/7b5998c6d6f80334e1c248d8bc390ba2.jpg",
     "title": "Namibia",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "AFRICA"
   },
   {
     "id": 117,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/769bfca61bf0b4ad491dbdf37ba0ec2a.jpg",
     "title": "Oman",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "ASIA"
   },
   {
     "id": 118,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/161a3ab84e882a7114c14018bd87a0d3.jpg",
     "title": "Nepal",
     "difficultyText": "HARD",
-    "activeBars": 3
+    "activeBars": 3,
+    "category": "ASIA"
   },
   {
     "id": 119,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/45cac10e842e2bdfd0f9c16a008bb36b.jpg",
     "title": "Costa Rica",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "NORTH AMERICA"
   },
   {
     "id": 120,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/559d20ed88022df5d0134bee88b30545.jpg",
     "title": "Cyprus",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "EUROPE"
   },
   {
     "id": 121,
     "imageSrc": "https://www.geoguessr.com/images/resize:auto:672:448/gravity:ce/plain/map/b6d6b4488e21eb9c1e7e43d4f50a13f1.jpg",
     "title": "Paraguay",
     "difficultyText": "MODERATE",
-    "activeBars": 2
+    "activeBars": 2,
+    "category": "SOUTH AMERICA"
   }
 ]
