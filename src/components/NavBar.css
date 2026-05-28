@@ -1,11 +1,18 @@
-.container {
+.navbar-wrapper {
+    width: 100%;
+    background-color: #203347;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    max-width: 1400px;
     padding: 15px 15px;
-    background-color: #203347;
 }
 
 #Logo {
@@ -25,7 +32,7 @@
     gap: 15px;
 }
 
-.container p {
+.navbar-container p {
     color: white;
     font-size: 20px;
     font-weight: 600;
@@ -68,4 +75,9 @@
 .search-wrapper i {
     color: white;
     font-size: 16px;
+}
+
+.navbar-container p.guest-text {
+    font-size: 16px;
+    margin-left: -5px;
 }
