@@ -3,9 +3,10 @@
     flex-wrap: wrap;
     gap: 20px;
     justify-content: flex-start;
-    padding: 40px 40px; /* Align with MapFilterBar padding */
+    align-content: flex-start;
+    padding: 40px 40px; 
     width: 100%;
-    max-width: 1440px; /* Increased to allow 4 cards per row */
+    max-width: 1440px; 
     margin: 0 auto;
     min-height: 100vh;
 }

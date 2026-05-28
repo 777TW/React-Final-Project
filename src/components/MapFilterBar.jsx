@@ -1,10 +1,7 @@
-import { useState } from 'react';
 import './MapFilterBar.css'
 import Button from './Button.jsx'
 
-export default function MapFilterBar (){
-    const [activeFilter, setActiveFilter] = useState("ALL");
-
+export default function MapFilterBar ({ activeFilter, setActiveFilter }){
     const filters = [
         "ALL",
         "NORTH AMERICA",
