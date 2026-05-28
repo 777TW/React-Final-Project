@@ -4,3 +4,8 @@
     font-family: sans-serif;
     box-sizing: border-box;
 }
+
+body {
+    background: linear-gradient(90deg, #465377 0%, #1e3145 100%);
+    min-height: 100vh;
+}
