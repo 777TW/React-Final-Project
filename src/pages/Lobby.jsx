@@ -1,4 +1,5 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import './Lobby.css';
 import MapCard from '../components/MapCard.jsx';
 import MapInfoCard from '../components/MapInfoCard.jsx';
@@ -8,6 +9,10 @@ import NavBar from '../components/NavBar.jsx'
 export default function Lobby() {
     const { mapTitle } = useParams();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [mapTitle]);
 
     const decodedTitle = decodeURIComponent(mapTitle);
     const mapInfo = mapData.find(m => m.title === decodedTitle);
@@ -21,6 +26,8 @@ export default function Lobby() {
     const locations = (seed * 12) + "K+";
     const likes = (seed * 987).toLocaleString();
     const avgScore = 10000 + (seed * 311);
+
+    const otherMaps = mapData.filter(m => m.id !== mapInfo.id).slice(0, 12);
 
     return (
         <div className="lobby-container">
@@ -89,7 +96,23 @@ export default function Lobby() {
                     </button>
                 </div>
             </div>
+
+            <div className="other-maps">
+                <h2 className="other-title">Other popular maps</h2>
+                <div className="other-map-container">
+                    {otherMaps.map((map) => (
+                        <MapCard
+                            key={map.id}
+                            id={map.id}
+                            imageSrc={map.imageSrc}
+                            title={map.title}
+                            difficultyText={map.difficultyText}
+                            activeBars={map.activeBars}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
+    </div>
     );
 }

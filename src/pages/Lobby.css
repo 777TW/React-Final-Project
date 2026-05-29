@@ -1,11 +1,14 @@
 .lobby-container {
     min-height: 100vh;
     background: linear-gradient(#456a9d 0%, #1e3145 50%);
+    background-attachment: fixed;
     color: white;
 }
 
 .lobby-inner {
     padding: 30px 50px;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 .lobby-header {
@@ -161,4 +164,28 @@
 .lobby-play-button:active {
     transform: translateY(6px);
     box-shadow: 0 0px 0 #1b9b3f, 0 5px 10px rgba(43, 216, 92, 0.4);
+}
+
+.other-maps {
+    margin-top: 60px;
+    padding-top: 30px;
+}
+
+.other-title {
+    font-size: 32px;
+    font-style: italic;
+    font-weight: 900;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.other-map-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1440px;
 }
