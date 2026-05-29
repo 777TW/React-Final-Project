@@ -7,14 +7,17 @@ import mapData from './data/maps.json';
 
 function App() {
     const [activeFilter, setActiveFilter] = useState("ALL");
+    const [searchQuery, setSearchQuery] = useState("");
 
-    const filteredMaps = activeFilter === "ALL" 
-        ? mapData 
-        : mapData.filter(map => map.category === activeFilter);
+    const filteredMaps = mapData.filter(map => {
+        const matchesCategory = activeFilter === "ALL" || map.category === activeFilter;
+        const matchesSearch = map.title.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCategory && matchesSearch;
+    });
 
     return (
         <div>
-            <NavBar />
+            <NavBar setSearchQuery={setSearchQuery} />
             <MapFilterBar activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
 
             <div className="card-grid-container">

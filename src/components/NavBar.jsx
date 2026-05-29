@@ -1,6 +1,6 @@
 import './NavBar.css'
 
-export default function NavBar () {
+export default function NavBar ({ setSearchQuery }) {
     return (
         <div className='navbar-wrapper'>
             <div className='navbar-container'>
@@ -15,10 +15,16 @@ export default function NavBar () {
                     <p>Party</p>
                 </div>
                 <div className='nav-right'>
-                    <form action="#" method="GET" class="search-form">
-                        <div class = "search-wrapper"> 
-                            <input type="text" name="q" placeholder = "Search for maps" autoComplete="off"/>
-                            <i class="fa-solid fa-magnifying-glass icon-search"></i>
+                    <form onSubmit={(e) => e.preventDefault()} className="search-form">
+                        <div className="search-wrapper"> 
+                            <input 
+                                type="text" 
+                                name="q" 
+                                placeholder="Search for maps" 
+                                autoComplete="off"
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                            />
+                            <i className="fa-solid fa-magnifying-glass icon-search"></i>
                         </div>
                     </form>
                     <div className='avatar'>O</div>
