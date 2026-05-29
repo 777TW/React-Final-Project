@@ -1,10 +1,12 @@
+import { Link } from 'react-router-dom';
 import './MapCard.css';
 
-export default function MapCard({ imageSrc, title, difficultyText, activeBars = 3 }) {
+export default function MapCard({ id, imageSrc, title, difficultyText, activeBars = 3 }) {
     const totalBars = 4;
     
     return (
-        <div className="map-card" style={{ backgroundImage: `url(${imageSrc})` }}>
+        <Link to={`/game/${encodeURIComponent(title)}`} style={{ textDecoration: 'none' }}>
+            <div className="map-card" style={{ backgroundImage: `url(${imageSrc})` }}>
             <div className="map-card-overlay">
                 <div className="map-card-content">
                     <h2 className="map-card-title">{title}</h2>
@@ -24,6 +26,7 @@ export default function MapCard({ imageSrc, title, difficultyText, activeBars = 
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
+        </Link>
     );
 }
