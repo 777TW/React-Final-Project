@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../App.css'
+import './Home.css'
 import NavBar from '../components/NavBar.jsx'
 import MapFilterBar from '../components/MapFilterBar.jsx';
 import MapCard from '../components/MapCard.jsx';
