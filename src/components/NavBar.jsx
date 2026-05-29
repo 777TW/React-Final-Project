@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import './NavBar.css'
 
 export default function NavBar ({ setSearchQuery }) {
+    const [activeTab, setActiveTab] = useState("Singleplayer");
+
     return (
         <div className='navbar-wrapper'>
             <div className='navbar-container'>
@@ -10,9 +13,18 @@ export default function NavBar ({ setSearchQuery }) {
                         alt="Logo"
                         id='Logo'    
                     />
-                    <p>Singleplayer</p>
-                    <p>Multiplayer</p>
-                    <p>Party</p>
+                    <p 
+                        className={activeTab === "Singleplayer" ? "active" : ""}
+                        onClick={() => setActiveTab("Singleplayer")}
+                    >Singleplayer</p>
+                    <p 
+                        className={activeTab === "Multiplayer" ? "active" : ""}
+                        onClick={() => setActiveTab("Multiplayer")}
+                    >Multiplayer</p>
+                    <p 
+                        className={activeTab === "Party" ? "active" : ""}
+                        onClick={() => setActiveTab("Party")}
+                    >Party</p>
                 </div>
                 <div className='nav-right'>
                     <form onSubmit={(e) => e.preventDefault()} className="search-form">
