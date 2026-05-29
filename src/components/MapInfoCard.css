@@ -1,0 +1,36 @@
+.map-info-card {
+    background-color: #9254f3;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    gap: 15px;
+    box-shadow: 0 4px 15px rgba(146, 84, 243, 0.3);
+    color: white;
+}
+
+.map-info-icon {
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.9;
+}
+
+.map-info-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.map-info-value {
+    font-size: 20px;
+    font-weight: 800;
+    font-style: italic;
+    line-height: 1.2;
+}
+
+.map-info-label {
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0.8;
+}
