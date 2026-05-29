@@ -73,6 +73,9 @@
     background-color: #203347;
     color: white;
     font-weight: 400;
+    width: 100%;
+    height: 100%;
+    margin-right: 10px;
 }
 
 .search-wrapper i {
