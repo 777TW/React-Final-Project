@@ -39,7 +39,7 @@ export default function NavBar ({ setSearchQuery }) {
                             <i className="fa-solid fa-magnifying-glass icon-search"></i>
                         </div>
                     </form>
-                    <div className='avatar'>O</div>
+                    <div className='avatar'></div>
                     <p className="guest-text">Guest</p>
                 </div>
             </div>

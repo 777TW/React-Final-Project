@@ -68,6 +68,7 @@
 
 .avatar {
     background-color: aliceblue;
+    background-image: url("https://www.geoguessr.com/images/resize:auto:48:48/gravity:ce/plain/pin/ce78f1992a485f755fd9bbfddf91fe43.png");
     border-radius: 50%;
     height: 48px;
     width: 48px;
