@@ -2,6 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import nycuLocations from '../data/nycu_locations.json'
 import GuessMap from '../components/GuessMap.jsx'
+import SummaryMap from '../components/SummaryMap.jsx'
 import './Play.css'
 
 export default function Play() {
@@ -18,13 +19,16 @@ export default function Play() {
         {score: null, time: null}
     ]);
     const [pinPosition, setPinPosition] = useState(null);
+    
+    const [showRoundSummary, setShowRoundSummary] = useState(false);
+    const [lastDistance, setLastDistance] = useState(0);
 
     useEffect(() => {
-        if (timeLeft > 0) {
+        if (timeLeft > 0 && !showRoundSummary) {
             const timerId = setTimeout(() =>setTimeleft(timeLeft - 1), 1000);
             return () => clearTimeout(timerId);
         }
-    }, [timeLeft]);
+    }, [timeLeft, showRoundSummary]);
 
     const formatTime = (seconds) => {
         const m = Math.floor(seconds / 60).toString().padStart(2, '0');
@@ -65,69 +69,133 @@ export default function Play() {
         const newScores = [...scores];
         newScores[currentRound - 1] = {
             score: score,
-            time: (180 - timeLeft) - totalTime
+            time: 180 - timeLeft
         };
         setScores(newScores);
+        setTimeleft(180);
+        setLastDistance(distance);
+        setShowRoundSummary(true); 
+    };
 
+    const handleNextRound = () => {
         if (currentRound < 5){
             setCurrentRound(currentRound + 1);
             setPinPosition(null);
+            setShowRoundSummary(false); 
         }
         else {
-            alert("Game Over!");
+            alert(`Game Over! Total Score: ${totalScore}`);
         }
     };
 
-    return (
-        <div className = "play-container">
-            <div
-                className = "play-background"
-                style = {{ backgroundImage: `url(${currentLocationData.imageSrc})` }}
-            ></div>
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.code === 'Space' && showRoundSummary) {
+                e.preventDefault();
+                handleNextRound();
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [showRoundSummary, currentRound]);
 
-            <div className = "play-ui-layer">
-                <div className = "play-timer">
-                    {formatTime(timeLeft)}
+    return (
+        <div className="play-container">
+            {!showRoundSummary ? (
+                <div
+                    className="play-background"
+                    style={{ backgroundImage: `url(${currentLocationData.imageSrc})` }}
+                ></div>
+            ) : (
+                <div className="summary-map-bg">
+                    <SummaryMap 
+                        correctLocation={{ lat: currentLocationData.lat, lng: currentLocationData.lng }}
+                        guessedLocation={pinPosition}
+                    />
                 </div>
-                <div className = "play-scoreboard">
+            )}
+
+            <div className="play-ui-layer">
+                {!showRoundSummary && (
+                    <div className="play-timer">
+                        {formatTime(timeLeft)}
+                    </div>
+                )}
+                
+                <div className="play-scoreboard">
                     {[1, 2, 3, 4, 5].map((roundNum) => {
                         const rData = scores[roundNum - 1];
                         return (
-                            <div key = {roundNum} className = {`scoreboard-round ${currentRound === roundNum ? 'active' : ''}`}>
-                                <span className = "round-label">R{roundNum}</span>
-                                <span className = "round-score">{rData.score !== null ? rData.score : '-'}</span>
-                                <span className = "round-time">{rData.time !== null ? formatTime(rData.time) : (currentRound === roundNum ? formatTime(180 - timeLeft) : '-')}</span>
+                            <div key={roundNum} className={`scoreboard-round ${currentRound === roundNum ? 'active' : ''}`}>
+                                <span className="round-label">R{roundNum}</span>
+                                <span className="round-score">{rData.score !== null ? rData.score : '-'}</span>
+                                <span className="round-time">{rData.time !== null ? formatTime(rData.time) : (currentRound === roundNum ? formatTime(180 - timeLeft) : '-')}</span>
                             </div>
                         );
                     })}
-                    <div className = "scoreboard-round total">
-                        <span className = "round-label" style = {{color: "white"}}>Total</span>
-                        <span className = "round-score">{totalScore}</span>
-                        <span className = "round-time">{formatTime(totalTime)}</span>
+                    <div className="scoreboard-round total">
+                        <span className="round-label" style={{color: "white"}}>Total</span>
+                        <span className="round-score">{totalScore}</span>
+                        <span className="round-time">{formatTime(totalTime)}</span>
                     </div>
                 </div>
 
-                <div className = "play-controls">
-                    <button className = "control-btn" onClick = {() => navigate(`/game/${mapTitle}`)}>
-                        <i className = "fa-solid fa-arrow-left"></i>
-                    </button>
-                    <button className = "control-btn"><i className = "fa-solid fa-compass"></i></button>
-                    <button className = "control-btn"><i className = "fa-solid fa-location-dot"></i></button>
-                    <button className = "control-btn"><i className = "fa-solid fa-flag"></i></button>
-                </div>
+                {!showRoundSummary ? (
+                    <>
+                        <div className="play-controls">
+                            <button className="control-btn" onClick={() => navigate(`/game/${mapTitle}`)}>
+                                <i className="fa-solid fa-arrow-left"></i>
+                            </button>
+                            <button className="control-btn"><i className="fa-solid fa-compass"></i></button>
+                            <button className="control-btn"><i className="fa-solid fa-location-dot"></i></button>
+                            <button className="control-btn"><i className="fa-solid fa-flag"></i></button>
+                        </div>
 
-                <div className = "play-map-wrapper">
-                    <div style = {{flex: 1, position: 'relative'}}>
-                        <GuessMap pinPosition={pinPosition} onPinDropped={(latlng) => setPinPosition(latlng)}/>
+                        <div className="play-map-wrapper">
+                            <div style={{flex: 1, position: 'relative'}}>
+                                <GuessMap pinPosition={pinPosition} onPinDropped={(latlng) => setPinPosition(latlng)}/>
+                            </div>
+                            <button
+                                className="map-guess-btn"
+                                onClick={handleGuess}
+                                style={{backgroundColor: pinPosition ? "#2bd85c" : "#9ca3af"}}
+                            >
+                                GUESS
+                            </button>
+                        </div>
+                    </>
+                ) : (
+                    <div className="summary-ui-layer">
+                        <div className="summary-info-card">
+                            <img src={currentLocationData.imageSrc} alt="Location" className="summary-info-img" />
+                            <div className="summary-info-text">
+                                <div className="summary-info-label">Hint</div>
+                                <div className="summary-info-hint">{currentLocationData.hint}</div>
+                            </div>
+                        </div>
+
+                        <div className="summary-bottom-panel">
+                            <div className="summary-stat">
+                                <span className="stat-value">
+                                    {lastDistance < 1 ? Math.round(lastDistance * 1000) + ' m' : lastDistance.toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1}) + ' km'}
+                                </span>
+                                <span className="stat-label">From Location</span>
+                            </div>
+                            
+                            <div className="summary-next-container">
+                                <button className="summary-next-btn" onClick={handleNextRound}>
+                                    {currentRound === 5 ? "VIEW SUMMARY" : "NEXT"}
+                                </button>
+                                <span className="hit-space">HIT SPACE TO CONTINUE</span>
+                            </div>
+
+                            <div className="summary-stat">
+                                <span className="stat-value score">{scores[currentRound - 1]?.score || 0}</span>
+                                <span className="stat-label">Of 5,000 Points</span>
+                            </div>
+                        </div>
                     </div>
-                    <button
-                        className = "map-guess-btn"
-                        onClick = {handleGuess}
-                        style = {{backgroundColor: pinPosition ? "#2bd85c" : "#9ca3af"}}
-                    >
-                        GUESS
-                    </button>
-                </div>
+                )}
             </div>
         </div>
     );
