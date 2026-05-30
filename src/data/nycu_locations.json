@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "imageSrc": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920&q=80",
+    "lat": 24.7870,
+    "lng": 120.9970,
+    "hint": "Main Library"
+  },
+  {
+    "id": 2,
+    "imageSrc": "https://images.unsplash.com/photo-1562774053-701939374585?w=1920&q=80",
+    "lat": 24.7865,
+    "lng": 120.9980,
+    "hint": "Engineering Building"
+  },
+  {
+    "id": 3,
+    "imageSrc": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=1920&q=80",
+    "lat": 24.7880,
+    "lng": 120.9960,
+    "hint": "Sports Field"
+  },
+  {
+    "id": 4,
+    "imageSrc": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&q=80",
+    "lat": 24.7850,
+    "lng": 120.9990,
+    "hint": "Student Dormitories"
+  },
+  {
+    "id": 5,
+    "imageSrc": "https://images.unsplash.com/photo-1525926477800-7a3ea2fb6bb1?w=1920&q=80",
+    "lat": 24.7868,
+    "lng": 120.9974,
+    "hint": "Central Campus"
+  }
+]
