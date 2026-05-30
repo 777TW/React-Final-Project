@@ -5,6 +5,31 @@ import GuessMap from '../components/GuessMap.jsx'
 import SummaryMap from '../components/SummaryMap.jsx'
 import './Play.css'
 
+function AnimatedNumber({ value, formatFn, duration = 1500 }) {
+    const [displayValue, setDisplayValue] = useState(0);
+
+    useEffect(() => {
+        let startTime;
+        const animate = (timestamp) => {
+            if (!startTime) startTime = timestamp;
+            const progress = timestamp - startTime;
+            const percentage = Math.min(progress / duration, 1);
+            const easeOut = percentage === 1 ? 1 : 1 - Math.pow(2, -10 * percentage);
+            
+            setDisplayValue(value * easeOut);
+
+            if (percentage < 1) {
+                requestAnimationFrame(animate);
+            } else {
+                setDisplayValue(value);
+            }
+        };
+        requestAnimationFrame(animate);
+    }, [value, duration]);
+
+    return <>{formatFn ? formatFn(displayValue) : Math.round(displayValue)}</>;
+}
+
 export default function Play() {
     const { mapTitle } = useParams();
     const navigate = useNavigate();
@@ -177,7 +202,10 @@ export default function Play() {
                         <div className="summary-bottom-panel">
                             <div className="summary-stat">
                                 <span className="stat-value">
-                                    {lastDistance < 1 ? Math.round(lastDistance * 1000) + ' m' : lastDistance.toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1}) + ' km'}
+                                    <AnimatedNumber 
+                                        value={lastDistance} 
+                                        formatFn={(val) => val < 1 ? Math.round(val * 1000) + ' m' : val.toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1}) + ' km'} 
+                                    />
                                 </span>
                                 <span className="stat-label">From Location</span>
                             </div>
@@ -190,7 +218,9 @@ export default function Play() {
                             </div>
 
                             <div className="summary-stat">
-                                <span className="stat-value score">{scores[currentRound - 1]?.score || 0}</span>
+                                <span className="stat-value score">
+                                    <AnimatedNumber value={scores[currentRound - 1]?.score || 0} />
+                                </span>
                                 <span className="stat-label">Of 5,000 Points</span>
                             </div>
                         </div>
