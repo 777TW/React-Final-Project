@@ -21,12 +21,12 @@ function LocationMarker( {onPinDropped }){
         },
     });
     return position === null ? null : (
-        <Marker position = {{position}}></Marker>
+        <Marker position={position}></Marker>
     )
 }
 
 export default function GuessMap({ onPinDropped }) {
-    const center = [24.7668, 120.9974];
+    const center = [24.7868, 120.9974];
     return (
         <div className = "guess-map-container">
             <MapContainer
