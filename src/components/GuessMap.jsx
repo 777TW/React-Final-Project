@@ -11,21 +11,18 @@ L.Icon.Default.mergeOptions({
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png'
 });
 
-function LocationMarker( {onPinDropped }){
-    const [position, setPosition] = useState(null);
-
+function LocationMarker({ pinPosition, onPinDropped }) {
     useMapEvents({
         click(e) {
-            setPosition(e.latlng);
             if (onPinDropped) onPinDropped(e.latlng);
         },
     });
-    return position === null ? null : (
-        <Marker position={position}></Marker>
+    return pinPosition === null ? null : (
+        <Marker position={pinPosition}></Marker>
     )
 }
 
-export default function GuessMap({ onPinDropped }) {
+export default function GuessMap({ pinPosition, onPinDropped }) {
     const center = [24.7868, 120.9974];
     return (
         <div className = "guess-map-container">
@@ -39,7 +36,7 @@ export default function GuessMap({ onPinDropped }) {
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                <LocationMarker onPinDropped = {onPinDropped} />
+                <LocationMarker pinPosition={pinPosition} onPinDropped={onPinDropped} />
             </MapContainer>
         </div>
     )
