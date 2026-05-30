@@ -5,11 +5,14 @@ import GuessMap from '../components/GuessMap.jsx'
 import SummaryMap from '../components/SummaryMap.jsx'
 import './Play.css'
 
-function AnimatedNumber({ value, formatFn, duration = 1500 }) {
+function AnimatedNumber({ value, formatFn, duration = 1500, onComplete }) {
     const [displayValue, setDisplayValue] = useState(0);
 
     useEffect(() => {
         let startTime;
+        let isCompleted = false;
+        let animationFrameId;
+
         const animate = (timestamp) => {
             if (!startTime) startTime = timestamp;
             const progress = timestamp - startTime;
@@ -19,12 +22,22 @@ function AnimatedNumber({ value, formatFn, duration = 1500 }) {
             setDisplayValue(value * easeOut);
 
             if (percentage < 1) {
-                requestAnimationFrame(animate);
+                animationFrameId = requestAnimationFrame(animate);
             } else {
                 setDisplayValue(value);
+                if (!isCompleted && onComplete) {
+                    isCompleted = true;
+                    onComplete();
+                }
             }
         };
-        requestAnimationFrame(animate);
+        animationFrameId = requestAnimationFrame(animate);
+
+        return () => {
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+            }
+        };
     }, [value, duration]);
 
     return <>{formatFn ? formatFn(displayValue) : Math.round(displayValue)}</>;
@@ -37,19 +50,22 @@ export default function Play() {
     const [currentRound, setCurrentRound] = useState(1);
     const [timeLeft, setTimeleft] = useState(180);
     const [scores, setScores] = useState([
-        {score: null, time: null},
-        {score: null, time: null},
-        {score: null, time: null},
-        {score: null, time: null},
-        {score: null, time: null}
+        {score: null, time: null, guess: null, correct: null},
+        {score: null, time: null, guess: null, correct: null},
+        {score: null, time: null, guess: null, correct: null},
+        {score: null, time: null, guess: null, correct: null},
+        {score: null, time: null, guess: null, correct: null}
     ]);
     const [pinPosition, setPinPosition] = useState(null);
     
     const [showRoundSummary, setShowRoundSummary] = useState(false);
     const [lastDistance, setLastDistance] = useState(0);
+    
+    const [isGameOver, setIsGameOver] = useState(false);
+    const [isAnimationDone, setIsAnimationDone] = useState(false);
 
     useEffect(() => {
-        if (timeLeft > 0 && !showRoundSummary) {
+        if (timeLeft > 0 && !showRoundSummary && !isGameOver) {
             const timerId = setTimeout(() =>setTimeleft(timeLeft - 1), 1000);
             return () => clearTimeout(timerId);
         }
@@ -94,7 +110,9 @@ export default function Play() {
         const newScores = [...scores];
         newScores[currentRound - 1] = {
             score: score,
-            time: 180 - timeLeft
+            time: 180 - timeLeft,
+            guess: pinPosition,
+            correct: correctCoords
         };
         setScores(newScores);
         setTimeleft(180);
@@ -109,7 +127,8 @@ export default function Play() {
             setShowRoundSummary(false); 
         }
         else {
-            alert(`Game Over! Total Score: ${totalScore}`);
+            setShowRoundSummary(false);
+            setIsGameOver(true);
         }
     };
 
@@ -126,12 +145,40 @@ export default function Play() {
 
     return (
         <div className="play-container">
-            {!showRoundSummary ? (
+            {isGameOver && (
+                <div className="game-over-container">
+                    <div className="summary-map-bg">
+                        <SummaryMap allRounds={scores} />
+                    </div>
+                    <div className="game-over-overlay">
+                        <div className="game-over-content">
+                            <h2 className="game-over-title">YOUR SCORE</h2>
+                            <div className="game-over-score">
+                                <AnimatedNumber 
+                                    value={totalScore} 
+                                    duration={2500} 
+                                    onComplete={() => setIsAnimationDone(true)} 
+                                />
+                            </div>
+                            
+                            {isAnimationDone && (
+                                <button className="home-btn" onClick={() => navigate('/')}>
+                                    PLAY AGAIN
+                                </button>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {!isGameOver && !showRoundSummary && (
                 <div
                     className="play-background"
                     style={{ backgroundImage: `url(${currentLocationData.imageSrc})` }}
                 ></div>
-            ) : (
+            )}
+            
+            {!isGameOver && showRoundSummary && (
                 <div className="summary-map-bg">
                     <SummaryMap 
                         correctLocation={{ lat: currentLocationData.lat, lng: currentLocationData.lng }}
@@ -140,7 +187,8 @@ export default function Play() {
                 </div>
             )}
 
-            <div className="play-ui-layer">
+            {!isGameOver && (
+                <div className="play-ui-layer">
                 {!showRoundSummary && (
                     <div className="play-timer">
                         {formatTime(timeLeft)}
@@ -227,6 +275,7 @@ export default function Play() {
                     </div>
                 )}
             </div>
+            )}
         </div>
     );
 }

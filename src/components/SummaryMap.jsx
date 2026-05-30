@@ -10,14 +10,24 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 });
 
-function FitBounds({ correctLocation, guessedLocation }) {
+function FitBounds({ correctLocation, guessedLocation, allRounds }) {
     const map = useMap();
     useEffect(() => {
-        if (correctLocation && guessedLocation) {
-            const bounds = L.latLngBounds([correctLocation, guessedLocation]);
+        let points = [];
+        if (allRounds && allRounds.length > 0) {
+            allRounds.forEach(r => {
+                if (r.correct) points.push(r.correct);
+                if (r.guess) points.push(r.guess);
+            });
+        } else if (correctLocation && guessedLocation) {
+            points = [correctLocation, guessedLocation];
+        }
+
+        if (points.length > 0) {
+            const bounds = L.latLngBounds(points);
             map.fitBounds(bounds, { padding: [100, 100], animate: true });
         }
-    }, [map, correctLocation, guessedLocation]);
+    }, [map, correctLocation, guessedLocation, allRounds]);
     return null;
 }
 
@@ -30,10 +40,12 @@ const blackIcon = new L.Icon({
   shadowSize: [41, 41]
 });
 
-export default function SummaryMap({ correctLocation, guessedLocation }) {
+export default function SummaryMap({ correctLocation, guessedLocation, allRounds }) {
+    const center = allRounds && allRounds[0]?.correct ? allRounds[0].correct : correctLocation || [0,0];
+
     return (
         <MapContainer 
-            center={correctLocation} 
+            center={center} 
             zoom={13} 
             zoomControl={false}
             scrollWheelZoom={true} 
@@ -43,18 +55,31 @@ export default function SummaryMap({ correctLocation, guessedLocation }) {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            {correctLocation && <Marker position={correctLocation} icon={blackIcon} />}
-            {guessedLocation && <Marker position={guessedLocation} />}
             
-            {correctLocation && guessedLocation && (
-                <>
-                    <Polyline 
-                        positions={[correctLocation, guessedLocation]} 
-                        pathOptions={{ color: 'black', weight: 3, dashArray: '5, 10' }} 
-                    />
-                    <FitBounds correctLocation={correctLocation} guessedLocation={guessedLocation} />
-                </>
+            {!allRounds && correctLocation && <Marker position={correctLocation} icon={blackIcon} />}
+            {!allRounds && guessedLocation && <Marker position={guessedLocation} />}
+            {!allRounds && correctLocation && guessedLocation && (
+                <Polyline 
+                    positions={[correctLocation, guessedLocation]} 
+                    pathOptions={{ color: 'black', weight: 3, dashArray: '5, 10' }} 
+                />
             )}
+
+            {allRounds && allRounds.map((round, i) => {
+                if (!round.correct || !round.guess) return null;
+                return (
+                    <div key={i}>
+                        <Marker position={round.correct} icon={blackIcon} />
+                        <Marker position={round.guess} />
+                        <Polyline 
+                            positions={[round.correct, round.guess]} 
+                            pathOptions={{ color: 'black', weight: 3, dashArray: '5, 10' }} 
+                        />
+                    </div>
+                );
+            })}
+
+            <FitBounds correctLocation={correctLocation} guessedLocation={guessedLocation} allRounds={allRounds} />
         </MapContainer>
     );
 }
