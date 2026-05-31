@@ -120,16 +120,19 @@ export default function Play() {
         const distance = haversineDistance(pinPosition, correctCoords);
         const score = calculateScore(distance);
 
+        // const testDistance = 0.067; // 67 meters
+        // const testScore = 6767; // Contains 67
+
         const newScores = [...scores];
         newScores[currentRound - 1] = {
-            score: score,
+            score: testScore, // replace with testScore for testing
             time: 180 - timeLeft,
             guess: pinPosition,
             correct: correctCoords
         };
-        setScores(newScores);
+        setScores(scores);
         setTimeleft(180);
-        setLastDistance(distance);
+        setLastDistance(distance); // replace with testDistance for testing
         setSummaryAnimDone(false);
         setShowRoundSummary(true);
     };
@@ -394,11 +397,9 @@ export default function Play() {
                                             value={lastDistance}
                                             onComplete={() => setSummaryAnimDone(true)}
                                             formatFn={(val) => {
-                                                let str = val < 1 ? Math.round(val * 1000) + ' m' : val.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' km';
-                                                if (summaryAnimDone && isEasterEgg) {
-                                                    return formatEasterEggStr(str);
-                                                }
-                                                return str;
+                                                let displayVal = summaryAnimDone ? lastDistance : val;
+                                                let str = displayVal < 1 ? Math.round(displayVal * 1000) + ' m' : displayVal.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' km';
+                                                return formatEasterEggStr(str);
                                             }}
                                         />
                                     </span>
@@ -417,7 +418,9 @@ export default function Play() {
                                         <AnimatedNumber
                                             value={scores[currentRound - 1]?.score || 0}
                                             formatFn={(val) => {
-                                                let str = String(Math.round(val));
+                                                let targetScore = scores[currentRound - 1]?.score || 0;
+                                                let displayVal = summaryAnimDone ? targetScore : val;
+                                                let str = String(Math.round(displayVal));
                                                 return formatEasterEggStr(str);
                                             }}
                                         />
