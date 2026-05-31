@@ -120,17 +120,18 @@ export default function Play() {
         const distance = haversineDistance(pinPosition, correctCoords);
         const score = calculateScore(distance);
 
+        // To test the Easter Egg, uncomment the lines below and use them in the newScores object:
         // const testDistance = 0.067; // 67 meters
         // const testScore = 6767; // Contains 67
 
         const newScores = [...scores];
         newScores[currentRound - 1] = {
-            score: testScore, // replace with testScore for testing
+            score: score, // replace with testScore for testing
             time: 180 - timeLeft,
             guess: pinPosition,
             correct: correctCoords
         };
-        setScores(scores);
+        setScores(newScores);
         setTimeleft(180);
         setLastDistance(distance); // replace with testDistance for testing
         setSummaryAnimDone(false);
