@@ -25,7 +25,8 @@ function FitBounds({ correctLocation, guessedLocation, allRounds }) {
 
         if (points.length > 0) {
             const bounds = L.latLngBounds(points);
-            map.fitBounds(bounds, { padding: [100, 100], animate: true });
+            const isMobile = window.innerWidth <= 768;
+            map.fitBounds(bounds, { padding: isMobile ? [30, 30] : [60, 60], animate: true });
         }
     }, [map, correctLocation, guessedLocation, allRounds]);
     return null;
