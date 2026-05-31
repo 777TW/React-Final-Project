@@ -16,6 +16,11 @@
     letter-spacing: 1px;
 }
 
+.leaderboard-header>div {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
 .leaderboard-row {
     display: flex;
     align-items: center;
@@ -90,7 +95,7 @@
     justify-content: center;
     font-weight: 800;
     font-size: 18px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .player-name {
@@ -113,17 +118,22 @@
     .col-date {
         display: none;
     }
-    .leaderboard-header, .leaderboard-row {
+
+    .leaderboard-header,
+    .leaderboard-row {
         padding: 10px;
     }
+
     .col-time {
         width: 90px;
         font-size: 12px;
     }
+
     .col-points {
         width: 70px;
         font-size: 14px;
     }
+
     .player-name {
         font-size: 14px;
     }
