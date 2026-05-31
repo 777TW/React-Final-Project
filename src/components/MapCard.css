@@ -56,9 +56,9 @@
 
 .map-card-difficulty {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 4px;
+    gap: 8px;
     margin-bottom: 2px;
 }
 
@@ -137,6 +137,11 @@
     .map-card-overlay {
         padding: 10px;
         height: 70%;
+    }
+
+    .map-card-difficulty {
+        flex-direction: column;
+        gap: 4px;
     }
 
     .difficulty-text {
