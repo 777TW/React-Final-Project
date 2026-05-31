@@ -2,6 +2,8 @@ import { useParams, useNavigate } from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import GuessMap from '../components/GuessMap.jsx'
 import SummaryMap from '../components/SummaryMap.jsx'
+import { saveScore } from '../utils/leaderboard'
+import { getCurrentUser } from '../utils/auth'
 import './Play.css'
 
 function AnimatedNumber({ value, formatFn, duration = 1500, onComplete }) {
@@ -139,6 +141,10 @@ export default function Play() {
         else {
             setShowRoundSummary(false);
             setIsGameOver(true);
+            
+            const user = getCurrentUser();
+            const finalUsername = user ? user.username : 'Guest';
+            saveScore(decodedTitle, finalUsername, totalScore, totalTime);
         }
     };
 

@@ -1,0 +1,110 @@
+.leaderboard-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    font-family: 'Inter', sans-serif;
+    color: white;
+}
+
+.leaderboard-header {
+    display: flex;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 800;
+    color: #63b3ae;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.leaderboard-row {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    margin-bottom: 6px;
+    background-color: #241c45;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background-color 0.2s;
+}
+
+.leaderboard-row:hover {
+    background-color: #2a2253;
+}
+
+/* Columns */
+.col-rank {
+    width: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.col-player {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.col-time {
+    width: 150px;
+    text-align: right;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.col-date {
+    width: 120px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.col-points {
+    width: 100px;
+    text-align: right;
+    color: #ffd700;
+    font-weight: 900;
+    font-size: 16px;
+}
+
+.rank-circle {
+    width: 30px;
+    height: 30px;
+    background-color: #3b2c68;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.player-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #6b4bc1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.player-name {
+    font-weight: 800;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.leaderboard-empty {
+    text-align: center;
+    padding: 40px;
+    background-color: #241c45;
+    border-radius: 8px;
+    color: #9ca3af;
+    font-style: italic;
+    font-size: 16px;
+}

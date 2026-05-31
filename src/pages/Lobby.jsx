@@ -5,6 +5,7 @@ import MapCard from '../components/MapCard.jsx';
 import MapInfoCard from '../components/MapInfoCard.jsx';
 import mapData from '../data/maps.json';
 import NavBar from '../components/NavBar.jsx'
+import Leaderboard from '../components/Leaderboard.jsx'
 
 export default function Lobby() {
     const { mapTitle } = useParams();
@@ -119,6 +120,10 @@ export default function Lobby() {
                     Not unlocked yet
                 </div>
             )}
+
+            <div className="lobby-leaderboard-section">
+                <Leaderboard mapTitle={mapInfo.title} />
+            </div>
 
             <div className="other-maps">
                 <h2 className="other-title">Other popular maps</h2>
