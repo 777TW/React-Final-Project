@@ -365,7 +365,10 @@
 
 @media (max-width: 768px) {
     .play-background {
-        background-position: center 20%;
+        height: 60%;
+        top: 0;
+        bottom: auto;
+        background-position: center bottom;
     }
 
     .play-scoreboard {
