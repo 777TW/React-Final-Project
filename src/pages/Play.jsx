@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom'
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import GuessMap from '../components/GuessMap.jsx'
 import SummaryMap from '../components/SummaryMap.jsx'
 import { saveScore } from '../utils/leaderboard'
@@ -19,7 +19,7 @@ function AnimatedNumber({ value, formatFn, duration = 1500, onComplete }) {
             const progress = timestamp - startTime;
             const percentage = Math.min(progress / duration, 1);
             const easeOut = percentage === 1 ? 1 : 1 - Math.pow(2, -10 * percentage);
-            
+
             setDisplayValue(value * easeOut);
 
             if (percentage < 1) {
@@ -51,23 +51,24 @@ export default function Play() {
     const [currentRound, setCurrentRound] = useState(1);
     const [timeLeft, setTimeleft] = useState(180);
     const [scores, setScores] = useState([
-        {score: null, time: null, guess: null, correct: null},
-        {score: null, time: null, guess: null, correct: null},
-        {score: null, time: null, guess: null, correct: null},
-        {score: null, time: null, guess: null, correct: null},
-        {score: null, time: null, guess: null, correct: null}
+        { score: null, time: null, guess: null, correct: null },
+        { score: null, time: null, guess: null, correct: null },
+        { score: null, time: null, guess: null, correct: null },
+        { score: null, time: null, guess: null, correct: null },
+        { score: null, time: null, guess: null, correct: null }
     ]);
     const [pinPosition, setPinPosition] = useState(null);
-    
+
     const [showRoundSummary, setShowRoundSummary] = useState(false);
     const [lastDistance, setLastDistance] = useState(0);
-    
+
     const [isGameOver, setIsGameOver] = useState(false);
     const [isAnimationDone, setIsAnimationDone] = useState(false);
+    const [summaryAnimDone, setSummaryAnimDone] = useState(false);
 
     useEffect(() => {
         if (timeLeft > 0 && !showRoundSummary && !isGameOver) {
-            const timerId = setTimeout(() =>setTimeleft(timeLeft - 1), 1000);
+            const timerId = setTimeout(() => setTimeleft(timeLeft - 1), 1000);
             return () => clearTimeout(timerId);
         }
     }, [timeLeft, showRoundSummary]);
@@ -98,10 +99,10 @@ export default function Play() {
         const R = 6371;
         const dLat = toRad(coords2.lat - coords1.lat);
         const dLon = toRad(coords2.lng - coords1.lng);
-        const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + 
+        const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
             Math.cos(toRad(coords1.lat)) * Math.cos(toRad(coords2.lat)) *
             Math.sin(dLon / 2) * Math.sin(dLon / 2);
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         return R * c;
     };
 
@@ -111,11 +112,11 @@ export default function Play() {
         return Math.max(0, score);
     };
 
-    const handleGuess = () => { 
-        if (!pinPosition){
+    const handleGuess = () => {
+        if (!pinPosition) {
             return;
         }
-        const correctCoords = {lat: currentLocationData.lat, lng: currentLocationData.lng};
+        const correctCoords = { lat: currentLocationData.lat, lng: currentLocationData.lng };
         const distance = haversineDistance(pinPosition, correctCoords);
         const score = calculateScore(distance);
 
@@ -129,19 +130,20 @@ export default function Play() {
         setScores(newScores);
         setTimeleft(180);
         setLastDistance(distance);
-        setShowRoundSummary(true); 
+        setSummaryAnimDone(false);
+        setShowRoundSummary(true);
     };
 
     const handleNextRound = () => {
-        if (currentRound < 5){
+        if (currentRound < 5) {
             setCurrentRound(currentRound + 1);
             setPinPosition(null);
-            setShowRoundSummary(false); 
+            setShowRoundSummary(false);
         }
         else {
             setShowRoundSummary(false);
             setIsGameOver(true);
-            
+
             const user = getCurrentUser();
             const finalUsername = user ? user.username : 'Guest';
             saveScore(decodedTitle, finalUsername, totalScore, totalTime);
@@ -159,6 +161,128 @@ export default function Play() {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [showRoundSummary, currentRound]);
 
+    const currentScore = scores[currentRound - 1]?.score || 0;
+    const currentMeters = Math.round(lastDistance * 1000);
+    const isEasterEgg = showRoundSummary && (String(currentMeters).includes('67') || String(currentScore).includes('67'));
+
+    const formatEasterEggStr = (str) => {
+        if (!summaryAnimDone || !isEasterEgg) return str;
+        const parts = str.split('67');
+        if (parts.length === 1) return str; // No '67'
+
+        const result = [];
+        for (let i = 0; i < parts.length; i++) {
+            result.push(parts[i]);
+            if (i < parts.length - 1) {
+                result.push(<span key={`6-${i}`} className="egg-6">6</span>);
+                result.push(<span key={`7-${i}`} className="egg-7">7</span>);
+            }
+        }
+        return <>{result}</>;
+    };
+
+    useEffect(() => {
+        if (summaryAnimDone && isEasterEgg) {
+            const timer = setTimeout(() => {
+                const eggs6 = document.querySelectorAll('.egg-6');
+                const eggs7 = document.querySelectorAll('.egg-7');
+
+                const totalPairs = eggs6.length;
+                if (totalPairs === 0) return;
+
+                const isMobile = window.innerWidth <= 768;
+                const spacing = isMobile ? 40 : 35; // Spacing between pairs
+                const baseLeft = 50 - ((totalPairs - 1) * spacing) / 2;
+
+                for (let i = 0; i < totalPairs; i++) {
+                    const e6 = eggs6[i];
+                    const e7 = eggs7[i];
+
+                    const rect6 = e6.getBoundingClientRect();
+                    const rect7 = e7.getBoundingClientRect();
+
+                    const clone6 = e6.cloneNode(true);
+                    const clone7 = e7.cloneNode(true);
+
+                    const comp6 = window.getComputedStyle(e6);
+                    clone6.style.fontFamily = comp6.fontFamily;
+                    clone6.style.fontWeight = comp6.fontWeight;
+                    clone6.style.fontSize = comp6.fontSize;
+                    clone6.style.lineHeight = comp6.lineHeight;
+
+                    const comp7 = window.getComputedStyle(e7);
+                    clone7.style.fontFamily = comp7.fontFamily;
+                    clone7.style.fontWeight = comp7.fontWeight;
+                    clone7.style.fontSize = comp7.fontSize;
+                    clone7.style.lineHeight = comp7.lineHeight;
+
+                    e6.style.opacity = 0;
+                    e7.style.opacity = 0;
+
+                    clone6.style.position = 'fixed';
+                    clone6.style.left = rect6.left + 'px';
+                    clone6.style.top = rect6.top + 'px';
+                    clone6.style.margin = '0';
+                    clone6.style.transition = 'all 2s ease-out';
+                    clone6.style.zIndex = '1000';
+                    clone6.style.pointerEvents = 'none';
+                    clone6.id = `flying-egg-6-${i}`;
+
+                    clone7.style.position = 'fixed';
+                    clone7.style.left = rect7.left + 'px';
+                    clone7.style.top = rect7.top + 'px';
+                    clone7.style.margin = '0';
+                    clone7.style.transition = 'all 2s ease-out';
+                    clone7.style.zIndex = '1000';
+                    clone7.style.pointerEvents = 'none';
+                    clone7.id = `flying-egg-7-${i}`;
+
+                    document.body.appendChild(clone6);
+                    document.body.appendChild(clone7);
+
+                    clone6.getBoundingClientRect();
+
+                    const pairCenterLeft = baseLeft + (i * spacing);
+
+                    if (isMobile) {
+                        clone6.style.left = `${pairCenterLeft}%`;
+                        clone6.style.top = '35%';
+                        clone7.style.left = `${pairCenterLeft}%`;
+                        clone7.style.top = '55%';
+                    } else {
+                        const offset = 7;
+                        clone6.style.left = `${pairCenterLeft - offset}%`;
+                        clone6.style.top = '50%';
+                        clone7.style.left = `${pairCenterLeft + offset}%`;
+                        clone7.style.top = '50%';
+                    }
+
+                    clone6.style.transform = `translate(-50%, -50%) scale(${isMobile ? 6 : 8})`;
+                    clone6.style.setProperty('--egg-scale', isMobile ? 6 : 8);
+                    clone6.style.color = 'white';
+                    clone6.style.textShadow = '0 0 30px #fb923c';
+
+                    clone7.style.transform = `translate(-50%, -50%) scale(${isMobile ? 6 : 8})`;
+                    clone7.style.setProperty('--egg-scale', isMobile ? 6 : 8);
+                    clone7.style.color = 'white';
+                    clone7.style.textShadow = '0 0 30px #fb923c';
+
+                    setTimeout(() => {
+                        clone6.style.animation = 'floatEgg6 0.6s ease-in-out infinite alternate';
+                        clone7.style.animation = 'floatEgg7 0.6s ease-in-out infinite alternate';
+                    }, 2000);
+                }
+            }, 50);
+            return () => {
+                clearTimeout(timer);
+                const eggs6 = document.querySelectorAll('[id^="flying-egg-6-"]');
+                const eggs7 = document.querySelectorAll('[id^="flying-egg-7-"]');
+                eggs6.forEach(e => e.remove());
+                eggs7.forEach(e => e.remove());
+            };
+        }
+    }, [summaryAnimDone, isEasterEgg]);
+
     return (
         <div className="play-container">
             {isGameOver && (
@@ -170,13 +294,13 @@ export default function Play() {
                         <div className="game-over-content">
                             <h2 className="game-over-title">YOUR SCORE</h2>
                             <div className="game-over-score">
-                                <AnimatedNumber 
-                                    value={totalScore} 
-                                    duration={2500} 
-                                    onComplete={() => setIsAnimationDone(true)} 
+                                <AnimatedNumber
+                                    value={totalScore}
+                                    duration={2500}
+                                    onComplete={() => setIsAnimationDone(true)}
                                 />
                             </div>
-                            
+
                             {isAnimationDone && (
                                 <button className="home-btn" onClick={() => navigate('/')}>
                                     PLAY AGAIN
@@ -193,10 +317,10 @@ export default function Play() {
                     style={{ backgroundImage: `url(${currentLocationData.imageSrc})` }}
                 ></div>
             )}
-            
+
             {!isGameOver && showRoundSummary && (
                 <div className="summary-map-bg">
-                    <SummaryMap 
+                    <SummaryMap
                         correctLocation={{ lat: currentLocationData.lat, lng: currentLocationData.lng }}
                         guessedLocation={pinPosition}
                     />
@@ -205,92 +329,105 @@ export default function Play() {
 
             {!isGameOver && (
                 <div className="play-ui-layer">
-                {!showRoundSummary && (
-                    <div className="play-timer">
-                        {formatTime(timeLeft)}
+                    {!showRoundSummary && (
+                        <div className="play-timer">
+                            {formatTime(timeLeft)}
+                        </div>
+                    )}
+
+                    <div className="play-scoreboard">
+                        {[1, 2, 3, 4, 5].map((roundNum) => {
+                            const rData = scores[roundNum - 1];
+                            return (
+                                <div key={roundNum} className={`scoreboard-round ${currentRound === roundNum ? 'active' : ''}`}>
+                                    <span className="round-label">R{roundNum}</span>
+                                    <span className="round-score">{rData.score !== null ? rData.score : '-'}</span>
+                                    <span className="round-time">{rData.time !== null ? formatTime(rData.time) : (currentRound === roundNum ? formatTime(180 - timeLeft) : '-')}</span>
+                                </div>
+                            );
+                        })}
+                        <div className="scoreboard-round total">
+                            <span className="round-label" style={{ color: "white" }}>Total</span>
+                            <span className="round-score">{totalScore}</span>
+                            <span className="round-time">{formatTime(totalTime)}</span>
+                        </div>
                     </div>
-                )}
-                
-                <div className="play-scoreboard">
-                    {[1, 2, 3, 4, 5].map((roundNum) => {
-                        const rData = scores[roundNum - 1];
-                        return (
-                            <div key={roundNum} className={`scoreboard-round ${currentRound === roundNum ? 'active' : ''}`}>
-                                <span className="round-label">R{roundNum}</span>
-                                <span className="round-score">{rData.score !== null ? rData.score : '-'}</span>
-                                <span className="round-time">{rData.time !== null ? formatTime(rData.time) : (currentRound === roundNum ? formatTime(180 - timeLeft) : '-')}</span>
-                            </div>
-                        );
-                    })}
-                    <div className="scoreboard-round total">
-                        <span className="round-label" style={{color: "white"}}>Total</span>
-                        <span className="round-score">{totalScore}</span>
-                        <span className="round-time">{formatTime(totalTime)}</span>
-                    </div>
-                </div>
 
-                {!showRoundSummary ? (
-                    <>
-                        <div className="play-controls">
-                            <button className="control-btn" onClick={() => navigate(`/game/${mapTitle}`)}>
-                                <i className="fa-solid fa-arrow-left"></i>
-                            </button>
-                            <button className="control-btn"><i className="fa-solid fa-compass"></i></button>
-                            <button className="control-btn"><i className="fa-solid fa-location-dot"></i></button>
-                            <button className="control-btn"><i className="fa-solid fa-flag"></i></button>
-                        </div>
-
-                        <div className="play-map-wrapper">
-                            <div style={{flex: 1, position: 'relative'}}>
-                                <GuessMap pinPosition={pinPosition} onPinDropped={(latlng) => setPinPosition(latlng)}/>
-                            </div>
-                            <button
-                                className="map-guess-btn"
-                                onClick={handleGuess}
-                                style={{backgroundColor: pinPosition ? "#2bd85c" : "#9ca3af"}}
-                            >
-                                GUESS
-                            </button>
-                        </div>
-                    </>
-                ) : (
-                    <div className="summary-ui-layer">
-                        <div className="summary-info-card">
-                            <img src={currentLocationData.imageSrc} alt="Location" className="summary-info-img" />
-                            <div className="summary-info-text">
-                                <div className="summary-info-label">Hint</div>
-                                <div className="summary-info-hint">{currentLocationData.hint}</div>
-                            </div>
-                        </div>
-
-                        <div className="summary-bottom-panel">
-                            <div className="summary-stat">
-                                <span className="stat-value">
-                                    <AnimatedNumber 
-                                        value={lastDistance} 
-                                        formatFn={(val) => val < 1 ? Math.round(val * 1000) + ' m' : val.toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1}) + ' km'} 
-                                    />
-                                </span>
-                                <span className="stat-label">From Location</span>
-                            </div>
-                            
-                            <div className="summary-next-container">
-                                <button className="summary-next-btn" onClick={handleNextRound}>
-                                    {currentRound === 5 ? "VIEW SUMMARY" : "NEXT"}
+                    {!showRoundSummary ? (
+                        <>
+                            <div className="play-controls">
+                                <button className="control-btn" onClick={() => navigate(`/game/${mapTitle}`)}>
+                                    <i className="fa-solid fa-arrow-left"></i>
                                 </button>
-                                <span className="hit-space">HIT SPACE TO CONTINUE</span>
+                                <button className="control-btn"><i className="fa-solid fa-compass"></i></button>
+                                <button className="control-btn"><i className="fa-solid fa-location-dot"></i></button>
+                                <button className="control-btn"><i className="fa-solid fa-flag"></i></button>
                             </div>
 
-                            <div className="summary-stat">
-                                <span className="stat-value score">
-                                    <AnimatedNumber value={scores[currentRound - 1]?.score || 0} />
-                                </span>
-                                <span className="stat-label">Of 5,000 Points</span>
+                            <div className="play-map-wrapper">
+                                <div style={{ flex: 1, position: 'relative' }}>
+                                    <GuessMap pinPosition={pinPosition} onPinDropped={(latlng) => setPinPosition(latlng)} />
+                                </div>
+                                <button
+                                    className="map-guess-btn"
+                                    onClick={handleGuess}
+                                    style={{ backgroundColor: pinPosition ? "#2bd85c" : "#9ca3af" }}
+                                >
+                                    GUESS
+                                </button>
+                            </div>
+                        </>
+                    ) : (
+                        <div className="summary-ui-layer">
+                            <div className="summary-info-card">
+                                <img src={currentLocationData.imageSrc} alt="Location" className="summary-info-img" />
+                                <div className="summary-info-text">
+                                    <div className="summary-info-label">Hint</div>
+                                    <div className="summary-info-hint">{currentLocationData.hint}</div>
+                                </div>
+                            </div>
+
+                            <div className="summary-bottom-panel">
+                                <div className="summary-stat">
+                                    <span className="stat-value">
+                                        <AnimatedNumber
+                                            value={lastDistance}
+                                            onComplete={() => setSummaryAnimDone(true)}
+                                            formatFn={(val) => {
+                                                let str = val < 1 ? Math.round(val * 1000) + ' m' : val.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' km';
+                                                if (summaryAnimDone && isEasterEgg) {
+                                                    return formatEasterEggStr(str);
+                                                }
+                                                return str;
+                                            }}
+                                        />
+                                    </span>
+                                    <span className="stat-label">From Location</span>
+                                </div>
+
+                                <div className="summary-next-container">
+                                    <button className="summary-next-btn" onClick={handleNextRound}>
+                                        {currentRound === 5 ? "VIEW SUMMARY" : "NEXT"}
+                                    </button>
+                                    <span className="hit-space">HIT SPACE TO CONTINUE</span>
+                                </div>
+
+                                <div className="summary-stat">
+                                    <span className="stat-value score">
+                                        <AnimatedNumber
+                                            value={scores[currentRound - 1]?.score || 0}
+                                            formatFn={(val) => {
+                                                let str = String(Math.round(val));
+                                                return formatEasterEggStr(str);
+                                            }}
+                                        />
+                                    </span>
+                                    <span className="stat-label">Of 5,000 Points</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                )}
-            </div>
+                    )}
+                </div>
             )}
         </div>
     );
