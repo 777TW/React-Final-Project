@@ -30,8 +30,12 @@ export default function Lobby() {
 
     const otherMaps = mapData.filter(m => m.id !== mapInfo.id).slice(0, 12);
 
+    const availableMaps = import.meta.glob('../data/*_locations.json');
+    const mapKey = `../data/${decodedTitle.toLowerCase()}_locations.json`;
+    const isLocked = !(mapKey in availableMaps);
+
     const handlePlayClick = () => {
-        if (mapInfo.title === 'NYCU') {
+        if (!isLocked) {
             navigate(`/play/${encodeURIComponent(mapInfo.title)}`);
         } else {
             setShowLockedToast(true);
@@ -102,7 +106,7 @@ export default function Lobby() {
                     </div>
 
                     <button 
-                        className={`lobby-play-button ${mapInfo.title !== 'NYCU' ? 'locked' : ''}`} 
+                        className={`lobby-play-button ${isLocked ? 'locked' : ''}`} 
                         onClick={handlePlayClick}
                     >
                         PLAY

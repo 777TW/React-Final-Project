@@ -1,6 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import {useState, useEffect} from 'react'
-import nycuLocations from '../data/nycu_locations.json'
 import GuessMap from '../components/GuessMap.jsx'
 import SummaryMap from '../components/SummaryMap.jsx'
 import './Play.css'
@@ -71,8 +70,14 @@ export default function Play() {
         }
     }, [timeLeft, showRoundSummary]);
 
+    const decodedTitle = decodeURIComponent(mapTitle);
+    const mapKey = `../data/${decodedTitle.toLowerCase()}_locations.json`;
+    const allLocationMaps = import.meta.glob('../data/*_locations.json', { eager: true });
+    const locationsData = allLocationMaps[mapKey]?.default || [];
+
     const [roundLocations, setRoundLocations] = useState(() => {
-        const shuffled = [...nycuLocations].sort(() => 0.5 - Math.random());
+        if (locationsData.length === 0) return [];
+        const shuffled = [...locationsData].sort(() => 0.5 - Math.random());
         return shuffled.slice(0, 5);
     });
 
