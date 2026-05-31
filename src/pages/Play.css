@@ -360,10 +360,6 @@
 }
 
 @media (max-width: 768px) {
-    .play-background {
-        height: 60%;
-    }
-
     .play-scoreboard {
         top: 60px;
         right: 10px;
