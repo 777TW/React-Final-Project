@@ -113,3 +113,10 @@
     font-size: 16px;
     margin-left: -5px;
 }
+
+
+p.guest-text.login-btn {
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: 800;
+}

@@ -1,10 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { getCurrentUser, logoutUser } from '../utils/auth';
+import AuthDropdown from './AuthDropdown';
 import './NavBar.css'
 
 export default function NavBar ({ setSearchQuery }) {
     const [activeTab, setActiveTab] = useState("Singleplayer");
+    const [currentUser, setCurrentUser] = useState(null);
+    const [showAuth, setShowAuth] = useState(false);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const user = getCurrentUser();
+        if (user) {
+            setCurrentUser(user);
+        }
+    }, []);
+
+    const handleLogout = () => {
+        logoutUser();
+        setCurrentUser(null);
+    };
 
     return (
         <div className='navbar-wrapper'>
@@ -43,8 +59,42 @@ export default function NavBar ({ setSearchQuery }) {
                             <i className="fa-solid fa-magnifying-glass icon-search"></i>
                         </div>
                     </form>
-                    <div className='avatar'></div>
-                    <p className="guest-text">Guest</p>
+                    <div className="auth-section" style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                        {currentUser ? (
+                            <>
+                                <div className='avatar' style={{ backgroundImage: 'none', backgroundColor: '#6b4bc1', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>
+                                    {currentUser.username.charAt(0).toUpperCase()}
+                                </div>
+                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                                    <p className="guest-text" style={{ margin: 0 }}>{currentUser.username}</p>
+                                    <span 
+                                        onClick={handleLogout} 
+                                        style={{ fontSize: '11px', color: '#ef4444', cursor: 'pointer', fontWeight: 'bold' }}
+                                    >
+                                        Logout
+                                    </span>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className='avatar'></div>
+                                <p 
+                                    className="guest-text login-btn" 
+                                    onClick={() => setShowAuth(!showAuth)}
+                                >
+                                    Login
+                                </p>
+                                {showAuth && (
+                                    <AuthDropdown 
+                                        onClose={() => setShowAuth(false)} 
+                                        onLoginSuccess={(username) => {
+                                            setCurrentUser({ username });
+                                        }}
+                                    />
+                                )}
+                            </>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>
