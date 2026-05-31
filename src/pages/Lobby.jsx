@@ -1,5 +1,5 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './Lobby.css';
 import MapCard from '../components/MapCard.jsx';
 import MapInfoCard from '../components/MapInfoCard.jsx';
@@ -9,6 +9,7 @@ import NavBar from '../components/NavBar.jsx'
 export default function Lobby() {
     const { mapTitle } = useParams();
     const navigate = useNavigate();
+    const [showLockedToast, setShowLockedToast] = useState(false);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -28,6 +29,15 @@ export default function Lobby() {
     const avgScore = 10000 + (seed * 311);
 
     const otherMaps = mapData.filter(m => m.id !== mapInfo.id).slice(0, 12);
+
+    const handlePlayClick = () => {
+        if (mapInfo.title === 'NYCU') {
+            navigate(`/play/${encodeURIComponent(mapInfo.title)}`);
+        } else {
+            setShowLockedToast(true);
+            setTimeout(() => setShowLockedToast(false), 2000);
+        }
+    };
 
     return (
         <div className="lobby-container">
@@ -91,11 +101,20 @@ export default function Lobby() {
                         </div>
                     </div>
 
-                    <button className="lobby-play-button" onClick={() => navigate(`/play/${encodeURIComponent(mapInfo.title)}`)}>
+                    <button 
+                        className={`lobby-play-button ${mapInfo.title !== 'NYCU' ? 'locked' : ''}`} 
+                        onClick={handlePlayClick}
+                    >
                         PLAY
                     </button>
                 </div>
             </div>
+
+            {showLockedToast && (
+                <div className="locked-toast">
+                    Not unlocked yet
+                </div>
+            )}
 
             <div className="other-maps">
                 <h2 className="other-title">Other popular maps</h2>
