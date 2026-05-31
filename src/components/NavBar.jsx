@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './NavBar.css'
 
 export default function NavBar ({ setSearchQuery }) {
     const [activeTab, setActiveTab] = useState("Singleplayer");
+    const navigate = useNavigate();
 
     return (
         <div className='navbar-wrapper'>
@@ -11,19 +13,21 @@ export default function NavBar ({ setSearchQuery }) {
                     <img 
                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/GeoGuessr_logo.svg/1280px-GeoGuessr_logo.svg.png" 
                         alt="Logo"
-                        id='Logo'    
+                        id='Logo'
+                        onClick={() => navigate('/')}
+                        style={{ cursor: 'pointer' }}
                     />
                     <p 
                         className={activeTab === "Singleplayer" ? "active" : ""}
-                        onClick={() => setActiveTab("Singleplayer")}
+                        onClick={() => { setActiveTab("Singleplayer"); navigate('/'); }}
                     >Singleplayer</p>
                     <p 
                         className={activeTab === "Multiplayer" ? "active" : ""}
-                        onClick={() => setActiveTab("Multiplayer")}
+                        onClick={() => navigate('/multiplayer')}
                     >Multiplayer</p>
                     <p 
                         className={activeTab === "Party" ? "active" : ""}
-                        onClick={() => setActiveTab("Party")}
+                        onClick={() => navigate('/party')}
                     >Party</p>
                 </div>
                 <div className='nav-right'>
