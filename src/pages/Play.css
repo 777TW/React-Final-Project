@@ -363,3 +363,51 @@
     background-color: #4d7c0f;
     transform: scale(1.05);
 }
+
+@media (max-width: 768px) {
+    .play-scoreboard {
+        top: 80px;
+        right: 10px;
+        transform: scale(0.8);
+        transform-origin: top right;
+    }
+    .play-timer {
+        top: 10px;
+        padding: 5px 20px;
+        font-size: 24px;
+    }
+    .play-map-wrapper {
+        width: 100%;
+        height: 200px;
+        bottom: 0;
+        right: 0;
+        border-radius: 12px 12px 0 0;
+    }
+    .play-map-wrapper:hover {
+        width: 100%;
+        height: 300px;
+    }
+    .play-controls {
+        bottom: 220px;
+        left: 10px;
+    }
+    .summary-bottom-panel {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 0;
+        gap: 15px;
+    }
+    .summary-info-card {
+        bottom: 250px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+    }
+    .stat-value {
+        font-size: 32px;
+    }
+    .summary-next-btn {
+        padding: 10px 40px;
+        font-size: 18px;
+    }
+}

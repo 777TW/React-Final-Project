@@ -120,3 +120,12 @@ p.guest-text.login-btn {
     text-decoration: underline;
     font-weight: 800;
 }
+
+@media (max-width: 768px) {
+    .nav-left p, .search-wrapper {
+        display: none;
+    }
+    .navbar-container {
+        padding: 10px;
+    }
+}

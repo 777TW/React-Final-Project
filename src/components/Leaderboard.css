@@ -108,3 +108,23 @@
     font-style: italic;
     font-size: 16px;
 }
+
+@media (max-width: 768px) {
+    .col-date {
+        display: none;
+    }
+    .leaderboard-header, .leaderboard-row {
+        padding: 10px;
+    }
+    .col-time {
+        width: 90px;
+        font-size: 12px;
+    }
+    .col-points {
+        width: 70px;
+        font-size: 14px;
+    }
+    .player-name {
+        font-size: 14px;
+    }
+}
