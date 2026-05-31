@@ -142,6 +142,17 @@
     flex-direction: column;
 }
 
+@media (min-width: 769px) {
+    .play-map-wrapper {
+        transition: width 0.3s ease, height 0.3s ease;
+    }
+
+    .play-map-wrapper:hover {
+        width: 500px;
+        height: 400px;
+    }
+}
+
 .map-guess-btn {
     background-color: #2bd85c;
     color: white;
