@@ -5,7 +5,7 @@ Welcome to the **NYCU GeoGuessr**! This is a web-based, interactive map-guessing
 This project was built for the **React Final Project** and demonstrates advanced React concepts, dynamic routing, local storage management, and complex mathematical calculations.
 
 ## 🚀 Live Demo
-*(Insert your Vercel deployment link here, e.g., https://your-project.vercel.app)*
+*(Insert your Vercel deployment link here, e.g., https://react-final-project-5bxz.vercel.app/)*
 
 ---
 
