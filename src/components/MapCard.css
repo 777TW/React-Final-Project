@@ -1,3 +1,8 @@
+.map-card-link {
+    text-decoration: none;
+    display: block;
+}
+
 .map-card {
     width: 320px;
     height: 200px;
@@ -7,14 +12,14 @@
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     border: 2px solid transparent;
 }
 
 .map-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
     border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -24,7 +29,7 @@
     left: 0;
     right: 0;
     height: 60%;
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -43,7 +48,7 @@
     font-weight: 900;
     font-style: italic;
     margin: 0;
-    text-shadow: 0px 2px 4px rgba(0,0,0,0.8);
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8);
     letter-spacing: 0.5px;
     max-width: 65%;
     line-height: 1.1;
@@ -51,42 +56,114 @@
 
 .map-card-difficulty {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 3px;
+    gap: 4px;
+    margin-bottom: 2px;
 }
 
 .difficulty-bars {
     display: flex;
     align-items: flex-end;
     gap: 3px;
-    height: 18px;
+    height: 14px;
 }
 
 .difficulty-bars .bar {
-    width: 4px;
+    width: 3px;
     border-radius: 1px;
 }
 
-.difficulty-bars .bar-1 { height: 6px; }
-.difficulty-bars .bar-2 { height: 10px; }
-.difficulty-bars .bar-3 { height: 14px; }
-.difficulty-bars .bar-4 { height: 18px; }
+.difficulty-bars .bar-1 {
+    height: 4px;
+}
+
+.difficulty-bars .bar-2 {
+    height: 7px;
+}
+
+.difficulty-bars .bar-3 {
+    height: 10px;
+}
+
+.difficulty-bars .bar-4 {
+    height: 14px;
+}
 
 .difficulty-bars .inactive {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
-.bars-1 .active { background-color: #4ade80; }
-.bars-2 .active { background-color: #facc15; }
-.bars-3 .active { background-color: #ef4444; } 
-.bars-4 .active { background-color: #991b1b; }
+.bars-1 .active {
+    background-color: #4ade80;
+}
+
+.bars-2 .active {
+    background-color: #facc15;
+}
+
+.bars-3 .active {
+    background-color: #ef4444;
+}
+
+.bars-4 .active {
+    background-color: #991b1b;
+}
 
 .difficulty-text {
     color: #e2e8f0;
     font-weight: 900;
     font-size: 14px;
     font-style: italic;
-    text-shadow: 0px 1px 2px rgba(0,0,0,0.8);
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.8);
     letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    .map-card-link {
+        width: calc(50% - 10px);
+    }
+
+    .map-card {
+        width: 100%;
+        height: 140px;
+        border-radius: 12px;
+    }
+
+    .map-card-title {
+        font-size: 16px;
+    }
+
+    .map-card-overlay {
+        padding: 10px;
+        height: 70%;
+    }
+
+    .difficulty-text {
+        font-size: 10px;
+    }
+
+    .difficulty-bars {
+        height: 10px;
+    }
+
+    .difficulty-bars .bar {
+        width: 2px;
+    }
+
+    .difficulty-bars .bar-1 {
+        height: 3px;
+    }
+
+    .difficulty-bars .bar-2 {
+        height: 5px;
+    }
+
+    .difficulty-bars .bar-3 {
+        height: 8px;
+    }
+
+    .difficulty-bars .bar-4 {
+        height: 10px;
+    }
 }

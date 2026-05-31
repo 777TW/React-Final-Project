@@ -13,7 +13,7 @@
 
 @media (max-width: 768px) {
     .card-grid-container {
-        justify-content: center;
+        justify-content: flex-start;
         padding: 20px 10px;
     }
 }

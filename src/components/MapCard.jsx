@@ -5,7 +5,7 @@ export default function MapCard({ id, imageSrc, title, difficultyText, activeBar
     const totalBars = 4;
     
     return (
-        <Link to={`/game/${encodeURIComponent(title)}`} style={{ textDecoration: 'none' }}>
+        <Link to={`/game/${encodeURIComponent(title)}`} className="map-card-link">
             <div className="map-card" style={{ backgroundImage: `url(${imageSrc})` }}>
             <div className="map-card-overlay">
                 <div className="map-card-content">
