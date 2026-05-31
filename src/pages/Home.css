@@ -10,3 +10,10 @@
     margin: 0 auto;
     min-height: 100vh;
 }
+
+@media (max-width: 768px) {
+    .card-grid-container {
+        justify-content: center;
+        padding: 20px 10px;
+    }
+}
