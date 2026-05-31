@@ -1,7 +1,5 @@
 .lobby-container {
     min-height: 100vh;
-    background: linear-gradient(#456a9d 0%, #1e3145 50%);
-    background-attachment: fixed;
     color: white;
 }
 
