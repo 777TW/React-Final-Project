@@ -71,13 +71,18 @@ export default function Play() {
         }
     }, [timeLeft, showRoundSummary]);
 
+    const [roundLocations, setRoundLocations] = useState(() => {
+        const shuffled = [...nycuLocations].sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, 5);
+    });
+
     const formatTime = (seconds) => {
         const m = Math.floor(seconds / 60).toString().padStart(2, '0');
         const s = (seconds % 60).toString().padStart(2, '0');
         return `${m}:${s}`;
     }
 
-    const currentLocationData = nycuLocations[currentRound - 1];
+    const currentLocationData = roundLocations[currentRound - 1];
     const totalScore = scores.reduce((sum, r) => sum + (r.score || 0), 0);
     const totalTime = scores.reduce((sum, r) => sum + (r.time || 0), 0);
 
